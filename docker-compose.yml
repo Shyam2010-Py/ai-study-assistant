@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ai-study-assistant-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_study_assistant
+      POSTGRES_USER: study_user
+      POSTGRES_PASSWORD: study_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
